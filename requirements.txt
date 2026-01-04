@@ -1,0 +1,15 @@
+torch
+pytorch-lightning
+mlflow
+ray[tune]
+fastapi
+uvicorn
+pandas
+numpy
+scikit-learn
+yfinance
+matplotlib
+pydantic
+black
+pylint
+pytest
