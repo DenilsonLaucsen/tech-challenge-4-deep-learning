@@ -6,7 +6,9 @@ class LSTMParams(BaseModel):
     Pydantic model for LSTM hyperparameters.
     """
 
-    input_size: int = Field(..., description="Number of features in the input data.")
+    input_size: int | None = Field(
+        None, description="Number of features in the input data."
+    )
     hidden_size: int = Field(
         ..., description="Number of hidden units in the LSTM layer(s)."
     )

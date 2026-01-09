@@ -1,0 +1,29 @@
+metadata:
+  selected_on: '2026-01-09 02:40:12'
+  experiment_name: lstm_strategy_experiments
+  run_id: 373642ec85744dbfa4d37d7f79efb0d4
+  metric: val_rmse
+  metric_value: 0.08940935134887695
+  strategy: NoProcessingSingle
+model:
+  type: LSTM
+  input_size: 4
+  hidden_size: 128
+  num_layers: 1
+  dropout: 0.0
+  output_size: 1
+  layer_config:
+  - LSTM
+  - Linear
+training:
+  learning_rate: 0.001
+  batch_size: 16
+  num_epochs: 5
+  shuffle: true
+data:
+  tickers: AAPL
+  period: 1y
+  seq_len: 30
+  train_ratio: 0.7
+  val_ratio: 0.15
+  scaler: TimeSeriesScaler

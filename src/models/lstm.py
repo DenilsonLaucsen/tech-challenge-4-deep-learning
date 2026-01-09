@@ -1,5 +1,5 @@
 import torch.nn as nn
-from app.model.lstm_params import LSTMParams
+from src.models.lstm_params import LSTMParams
 
 
 class LSTM(nn.Module):
@@ -12,15 +12,13 @@ class LSTM(nn.Module):
         self.layers = nn.ModuleList(layers)
 
     def forward(self, x):
-        # x: (batch, seq_len, features) if batch_first=True
         for i, layer in enumerate(self.layers):
             if isinstance(layer, nn.LSTM):
                 x, _ = layer(x)
-                # if next layer is not LSTM, reduce sequence dim and pass last time-step
                 if i + 1 < len(self.layers) and not isinstance(
                     self.layers[i + 1], nn.LSTM
                 ):
-                    x = x[:, -1, :]  # take last time-step features
+                    x = x[:, -1, :]
             else:
                 x = layer(x)
         return x
@@ -69,10 +67,8 @@ class LSTMFactory:
         layers = []
         current_input_size = self.params.input_size
         for layer_type in self.layer_config:
-            # if layer is LSTM, create with current_input_size and update
             if layer_type.lower() == "lstm":
                 layer = self.get_layer("LSTM", input_size=current_input_size)
-                # output of LSTM has size hidden_size across features
                 current_input_size = self.params.hidden_size
             elif layer_type.lower() == "linear":
                 layer = self.get_layer("Linear", input_size=current_input_size)

@@ -1,0 +1,35 @@
+ray:
+  num_cpus: 4
+  num_gpus: 0
+
+experiment:
+  name: "lstm_strategy_experiments"
+
+strategies:
+  - NoProcessingSingleStrategy
+  - NoProcessingMultipleStrategy
+  - RangeSingleStrategy
+  - RangeMultipleStrategy
+
+search_space:
+  learning_rate:
+    - 0.001
+    - 0.0005
+  seq_len:
+    - 20
+    - 30
+  hidden_size:
+    - 64
+    - 128
+  num_layers:
+    - 1
+    - 2
+  batch_size:
+    - 16
+
+fixed_params:
+  tickers: ["AAPL"]
+  period: "1y"
+  num_epochs: 5
+  train_ratio: 0.7
+  val_ratio: 0.15

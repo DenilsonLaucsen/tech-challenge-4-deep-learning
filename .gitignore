@@ -7,7 +7,6 @@ venv/
 .env/
 .envrc
 
-data/
 *.csv
 
 dist/
@@ -16,3 +15,10 @@ build/
 
 .vscode/
 .idea/
+
+artifacts/
+.pytest_cache/
+mlruns/
+data/raw/
+mlflow.db
+/models/

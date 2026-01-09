@@ -13,3 +13,4 @@ pydantic
 black
 pylint
 pytest
+ray[default]
