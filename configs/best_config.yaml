@@ -1,5 +1,5 @@
 metadata:
-  selected_on: '2026-01-09 02:40:12'
+  selected_on: '2026-01-09 20:09:06'
   experiment_name: lstm_strategy_experiments
   run_id: 373642ec85744dbfa4d37d7f79efb0d4
   metric: val_rmse

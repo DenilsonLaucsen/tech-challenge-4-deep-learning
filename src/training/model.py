@@ -416,10 +416,10 @@ class TrainerContext:
                 experiment.log_artifact(run_id, str(model_path))
 
         else:
-            model_dir = Path("models")
+            model_dir = Path("artifacts/models")
             model_dir.mkdir(exist_ok=True)
 
-            model_path = model_dir / f"{self.strategy.name}.pt"
+            model_path = model_dir / f"model_final.pt"
             torch.save(model.state_dict(), model_path)
 
             experiment.log_artifact(run_id, str(model_path))

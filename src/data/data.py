@@ -72,7 +72,6 @@ class DataStrategy(ABC):
                     if df.empty:
                         raise ValueError(f"yfinance retornou DataFrame vazio para ticker '{ticker}'")
 
-                    # Salvar cópia local para acelerar futuras execuções
                     df.to_csv(local_path)
                 except Exception as e:
                     raise RuntimeError(f"Erro ao baixar dados para ticker '{ticker}': {e}")

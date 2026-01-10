@@ -79,7 +79,7 @@ def train_model():
             lstm_params=lstm_params,
             shuffle=training_cfg["shuffle"],
             scaler=TimeSeriesScaler(),
-            scaler_name="scaler_production.pkl",
+            scaler_name="scaler_final",
             enable_mlflow=True,
             train_ratio=data_cfg["train_ratio"],
             val_ratio=data_cfg["val_ratio"],
